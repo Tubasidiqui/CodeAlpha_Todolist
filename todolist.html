@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+
+  <title>todolist</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    body {
+      background-color: rgb(153 117 223);
+      font-family: "poppins", "sans-serif";
+    }
+
+    .container {
+      width: 360px;
+      padding: 33px;
+      text-align: center;
+      background-color: #f5def1;
+      margin-left: 287px;
+     margin-top: 175px;
+     border: 2px solid purple;
+    }
+
+    input {
+      width: 270px;
+      padding: 8px;
+      border: 2px solid purple;
+      outline: none;
+      font-size: 19px;
+    }
+
+    button {
+      width: 60px;
+      height: 41px;
+      background-color: purple;
+      border: none;
+      outline: none;
+      color: white;
+      border-radius: 2px;
+      font-size: 19px;
+      cursor: pointer;
+    }
+
+    .text ul {
+      position: relative;
+      background-color: rgb(153 117 223);
+      color: black;
+      font-size: 19px;
+      text-align: left;
+      padding: 7px;
+    }
+
+    .text ul li {
+      position: absolute;
+      right: 10px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>To Do List</h1>
+    <div class="input">
+      <input type="text" placeholder="Enter Your Task" id="inp">
+      <button onclick="Add()">Add</button>
+    </div>
+    <div class="text">
+
+    </div>
+  </div>
+
+  <script>
+    let input = document.getElementById("inp");
+    let text = document.querySelector(".text");
+   
+     
+    function Add(){
+      if (input.value == ""){
+        alert("please enter task");
+      }else{
+        let newEle = document.createElement('ul');
+        newEle.innerHTML = `${input.value} <i class="fa-solid fa-trash"></i>`; 
+        text.appendChild(newEle)
+        input.value="";
+        newEle.querySelector("i").addEventListener("click" , remove);
+        function remove(){
+         newEle.remove()
+
+       }
+      }
+    }
+    
+
+  </script>
+
+
+</body>
+
+</html>
